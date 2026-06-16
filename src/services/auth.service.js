@@ -34,5 +34,5 @@ authService.login = async (email, password) => {
 
   const {password: _, ...userWithoutPassword} = user;
 
-  return {access_token, user};
+  return {access_token, user: userWithoutPassword};
 };
