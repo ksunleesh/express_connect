@@ -19,6 +19,10 @@ authService.login = async (email, password) => {
     createError(401, "Invalid email or password");
   }
   // compare password
+  const isMatch = await hashService.compare(password, user.password);
+  if (!isMatch) {
+    createError(401, "Invalid email or password");
+  }
   // gen access token
   // return access_token, user object
 };
