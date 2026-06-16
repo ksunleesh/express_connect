@@ -3,7 +3,7 @@ import {createError} from "../utils/create-error.js";
 
 export const userService = {};
 
-userService.Create = async (data) => {
+userService.create = async (data) => {
   try {
     return await prisma.user.create({data});
   } catch (err) {
