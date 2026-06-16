@@ -10,3 +10,5 @@ authService.register = async (input) => {
   // insert new user
   await userService.create({email: input.email, password: hash});
 };
+
+//fin
