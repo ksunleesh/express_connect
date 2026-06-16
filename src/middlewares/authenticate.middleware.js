@@ -8,7 +8,7 @@ export const authenticate = async (req, res, next) => {
   if (!authorization) {
     createError(400, "Authorization is missing");
   }
-  if (!authorization.startsWith("bearer ")) {
+  if (!authorization.startsWith("Bearer ")) {
     createError(400, "Invalid authorization scheme");
   }
   const token = authorization.split(" ")[1];
@@ -20,6 +20,7 @@ export const authenticate = async (req, res, next) => {
       createError(404, "User is not found");
     }
     req.user = payload;
+    req.user = user;
   } catch (err) {
     if (err.name === "TokenExpiredError") {
       createError(401, "Token expired");
@@ -29,4 +30,5 @@ export const authenticate = async (req, res, next) => {
     }
     throw err;
   }
+  next();
 };
