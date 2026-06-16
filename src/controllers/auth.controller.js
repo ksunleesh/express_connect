@@ -9,5 +9,6 @@ authController.register = async (req, res) => {
 
 authController.login = async (req, res) => {
   const {email, password} = req.body;
-  await authService.login(email, password);
+  const {access_token, user} = await authService.login(email, password);
+  res.status(200).json({access_token, user});
 };
