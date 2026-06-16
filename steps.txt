@@ -1,5 +1,5 @@
 pnpm init
-pnpm i express dot env @prisma/client @prisma/adapter-pg jsonwebtoken bcrypt zod 
+pnpm i express dot env @prisma/client @prisma/adapter-pg jsonwebtoken bcrypt zod morgan
 create src folder
 in src create app.js file
 in src create .env file
