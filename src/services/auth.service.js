@@ -1,3 +1,4 @@
+import {createError} from "../utils/create-error.js";
 import {hashService} from "./hash.service.js";
 import {userService} from "./user.service.js";
 
@@ -11,4 +12,13 @@ authService.register = async (input) => {
   await userService.create({email: input.email, password: hash});
 };
 
-//fin
+authService.login = async (email, password) => {
+  // find user by email
+  const user = await userService.findByEmail(email);
+  if (!user) {
+    createError(401, "Invalid email or password");
+  }
+  // compare password
+  // gen access token
+  // return access_token, user object
+};

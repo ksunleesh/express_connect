@@ -7,4 +7,7 @@ authController.register = async (req, res) => {
   res.status(201).json({message: "User registered successfully"});
 };
 
-authController.login = async (req, res) => {};
+authController.login = async (req, res) => {
+  const {email, password} = req.body;
+  await authService.login(email, password);
+};

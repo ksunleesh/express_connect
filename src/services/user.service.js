@@ -13,3 +13,11 @@ userService.create = async (data) => {
     throw err;
   }
 };
+
+userService.findByEmail = (email) =>
+  prisma.user.findFirst({
+    where: {
+      email,
+      deletedAt: null,
+    },
+  });
