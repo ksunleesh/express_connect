@@ -8,3 +8,8 @@ in config folder create env.js file
 in env.js file import z
 in .env file create port name
 in app.js import express from express
+
+
+--- after finish schema.prisma
+pnpm prisma migrate
+pnpm prisma generate
