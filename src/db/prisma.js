@@ -1,4 +1,4 @@
-const {PrismaPg} = require("@prisma/adapter-pg");
+import {PrismaPg} from "@prisma/adapter-pg";
 import {env} from "../config/env.js";
 import {PrismaClient} from "./generated/prisma/client.js";
 
