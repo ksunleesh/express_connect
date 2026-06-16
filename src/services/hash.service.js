@@ -6,4 +6,4 @@ export const hashService = {};
 
 hashService.hash = (plain) => bcrypt.hash(plain, SALT_ROUNDS);
 
-hashService.compare = (plain, hashed) => bcrypt.compare(plain, hased);
+hashService.compare = (plain, hashed) => bcrypt.compare(plain, hashed);

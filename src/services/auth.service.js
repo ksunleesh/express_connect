@@ -1,5 +1,6 @@
 import {createError} from "../utils/create-error.js";
 import {hashService} from "./hash.service.js";
+import {jwtService} from "./jwt.service.js";
 import {userService} from "./user.service.js";
 
 export const authService = {};

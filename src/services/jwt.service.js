@@ -1,3 +1,4 @@
+import {env} from "../config/env.js";
 import jwt from "JsonWebToken";
 
 export const jwtService = {};
