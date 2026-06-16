@@ -24,6 +24,11 @@ authService.login = async (email, password) => {
     createError(401, "Invalid email or password");
   }
   // gen access token
-
+  const access_token = jwtService.sign({
+    sub: user.id,
+    email: user.email,
+    role: user.role,
+  });
   // return access_token, user object
+  return {access_token, user};
 };
