@@ -34,8 +34,9 @@ model Todo {
   dueDate   DateTime? @map("due_date") @db.Date
   createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
   updatedAt DateTime  @updatedAt() @map("updated_at") @db.Timestamptz(3)
-  userId    Int
-  user      User      @relation(fields: [userId], references: [id])
+  userId    Int       @map("user_id")
+
+  user User @relation(fields: [userId], references: [id])
 
   @@map("todos")
 }
