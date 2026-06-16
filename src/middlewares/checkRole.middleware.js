@@ -5,6 +5,5 @@ export const checkRole =
     if (!allowedRoles.includes(userRole)) {
       createError(403, "Insufficent role to perform this action");
     }
-    // console.log("test");
     next();
   };
