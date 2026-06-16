@@ -1,0 +1,2 @@
+pnpm init
+pnpm i express dot env @prisma/client @prisma/adapter-pg jsonwebtoken bcrypt zod 

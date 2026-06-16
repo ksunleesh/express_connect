@@ -1,0 +1,38 @@
+generator client {
+  provider   = "prisma-client"
+  output     = "../src/db/generated/prisma"
+  engineType = "client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  password  String
+  role      Role      @default(USER)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime  @updatedAt() @map("updated_at") @db.Timestamptz(3)
+  deletedAt DateTime? @map("deleted_at") @db.Timestamptz(3)
+
+  @@map("users")
+}
+
+model Todo {
+  id        Int      @id @default(autoincrement())
+  title     String
+  status    String
+  dueDate   DateTime @map("due_date") @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt() @map("updated_at") @db.Timestamptz(3)
+  userId    User     @relation(fields: [userId], references: [id])
+
+  @@map("todos")
+}
