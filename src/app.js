@@ -1,13 +1,12 @@
-import "dotenv/config";
 import express from "express";
+import {env} from "./config/env.js";
 
 const app = express();
 
-const PORT = process.env.PORT ?? 8000;
-app.listen(PORT, (error) => {
-  if (error) {
-    console.Error(error);
-  } else {
-    console.log(`Server running on port: ${PORT}`);
+app.listen(env.PORT, (err) => {
+  if (err) {
+    console.Error(err);
+    process.exit(1);
   }
+  console.log(`Server running on port: ${env.PORT}`);
 });
