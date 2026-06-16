@@ -7,6 +7,7 @@ export const validate = (schemas) => (req, res, next) => {
     if (!result.success) {
       createError(400, "Provided request body is invalid", z.flattenError(result.error));
     }
+    console.log(result.data);
   }
   //   if (schemas.params) req.rarams = schemas.params.parse(req.params);
   next();
