@@ -1,3 +1,4 @@
+import "dotenv/config";
 import z from "zod";
 
 const envSchema = z.object({
@@ -8,8 +9,8 @@ const envSchema = z.object({
 const result = envSchema.safeParse(process.env);
 
 if (!result.success) {
-  console.log("Env validation failed");
-  console.error(z.prettifyError(result.error));
+  console.log("ENV validation failed");
+  console.log(z.prettifyError(result.error));
   process.exit(1);
 }
 

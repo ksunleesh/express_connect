@@ -1,2 +1,10 @@
 pnpm init
 pnpm i express dot env @prisma/client @prisma/adapter-pg jsonwebtoken bcrypt zod 
+create src folder
+in src create app.js file
+in src create .env file
+in src create config folder
+in config folder create env.js file
+in env.js file import z
+in .env file create port name
+in app.js import express from express
