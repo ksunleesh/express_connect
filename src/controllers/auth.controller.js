@@ -13,4 +13,6 @@ authController.login = async (req, res) => {
   res.status(200).json({access_token, user});
 };
 
-authController.getMe = (req, res) => {};
+authController.getMe = (req, res) => {
+  res.status(200).json({user: req.user});
+};
