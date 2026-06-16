@@ -1,5 +1,13 @@
+import z from "zod";
+import {createError} from "../utils/create-error.js";
+
 export const validate = (schemas) => (req, res, next) => {
-  if (schemas.body) req.body = schemas.body.parse(req.body);
+  if (schemas.body) {
+    const result = schemas.body.safeParse(req.body);
+    if (!result.success) {
+      createError(400, "Provided request body is invalid", z.flattenError(result.error));
+    }
+  }
   //   if (schemas.params) req.rarams = schemas.params.parse(req.params);
   next();
 };
