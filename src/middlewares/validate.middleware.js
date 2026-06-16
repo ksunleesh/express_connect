@@ -1,0 +1,5 @@
+export const validate = (schemas) => (req, res, next) => {
+  if (schemas.body) req.body = schemas.body.parse(req.body);
+  //   if (schemas.params) req.rarams = schemas.params.parse(req.params);
+  next();
+};
