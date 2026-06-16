@@ -31,5 +31,8 @@ authService.login = async (email, password) => {
     role: user.role,
   });
   // return access_token, user object
+
+  const {password: _, ...userWithoutPassword} = user;
+
   return {access_token, user};
 };
