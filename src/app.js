@@ -3,15 +3,16 @@ import {env} from "./config/env.js";
 import {notFoundMiddleware} from "./middlewares/not-found.middleware.js";
 import {errorMiddleware} from "./middlewares/error.middleware.js";
 import morgan from "morgan";
+import {authRouter} from "./routes/auth.route.js";
 
 const app = express();
 
 app.use(express.json()); // needed to read
-
 app.use(morgan("dev"));
 
-app.use(notFoundMiddleware);
+app.use("/auth", authRouter);
 
+app.use(notFoundMiddleware);
 app.use(errorMiddleware);
 
 app.listen(env.PORT, (err) => {
