@@ -1,6 +1,6 @@
 import z from "zod";
 
-const passwordSchema = z.string().regex(/^[0-9z-zA-Z](6,)$/);
+const passwordSchema = z.string().regex(/^[0-9a-zA-Z]{6,}$/);
 
 export const registerSchema = z
   .object({
