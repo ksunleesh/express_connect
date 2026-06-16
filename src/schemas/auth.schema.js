@@ -12,4 +12,4 @@ export const registerSchema = z
     error: "Passwords do not match",
     path: ["confirm"],
   })
-  .transform((value) => ({email: value.email, password: value.password}));
+  .transform(({confirm, ...data}) => data);
