@@ -21,3 +21,12 @@ userService.findByEmail = (email) =>
       deletedAt: null,
     },
   });
+
+userService.findByID = (id) =>
+  prisma.user.findFirst({
+    where: {
+      id,
+      deletedAt: null,
+    },
+    omit: {password: true},
+  });
