@@ -26,6 +26,12 @@ RESPONSE
     500 external server error
 
 - ME
+GET /auth/me
+AUTHORIZATION bearer
+RESPONSE
+    200 user
+    401 message
+    500 message
 
 ONLY USER
 -CREATE TODO
