@@ -1,8 +1,10 @@
 import {Router} from "express";
 import {authController} from "../controllers/auth.controller.js";
+import {registerSchema} from "../schemas/auth.schema.js";
+import {validate} from "../middlewares/validate.middleware.js";
 
 const authRouter = Router();
 
-authRouter.post("/register", authController.register);
+authRouter.post("/register", validate({body: registerSchema}), authController.register);
 
 export {authRouter};
