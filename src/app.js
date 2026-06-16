@@ -1,12 +1,15 @@
 import express from "express";
 import {env} from "./config/env.js";
 import {notFoundMiddleware} from "./middlewares/not-found.middleware.js";
+import {errorMiddleware} from "./middlewares/error.middleware.js";
 
 const app = express();
 
 app.use(express.json()); // needed to read
 
 app.use(notFoundMiddleware);
+
+app.use(errorMiddleware);
 
 app.listen(env.PORT, (err) => {
   if (err) {
