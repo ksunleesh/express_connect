@@ -6,5 +6,6 @@ import {validate} from "../middlewares/validate.middleware.js";
 const authRouter = Router();
 
 authRouter.post("/register", validate({body: registerSchema}), authController.register);
+authRouter.post("/login", authController.login);
 
 export {authRouter};

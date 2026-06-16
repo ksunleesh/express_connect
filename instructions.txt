@@ -15,6 +15,16 @@ RESPONSE
 
 
 - LOGIN
+POST /auth/login
+BODY
+    email
+    password
+RESPONSE
+    200 access_token, user, role
+    400 message
+    401 message
+    500 external server error
+
 - ME
 
 ONLY USER
