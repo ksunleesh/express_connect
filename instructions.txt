@@ -1,0 +1,22 @@
+FEATURES
+
+DOMAIN: auth
+- REGISTER
+POST /auth/register
+BODY
+    email
+    password
+    confirm
+RESPONSE
+    201 message
+    400 message
+    409 message
+    500 message
+
+
+- LOGIN
+- ME
+
+ONLY USER
+-CREATE TODO
+-UPDATE TODO
