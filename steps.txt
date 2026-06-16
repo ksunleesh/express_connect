@@ -13,3 +13,6 @@ in app.js import express from express
 --- after finish schema.prisma
 pnpm prisma migrate
 pnpm prisma generate
+
+
+---
