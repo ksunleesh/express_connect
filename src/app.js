@@ -4,6 +4,7 @@ import {notFoundMiddleware} from "./middlewares/not-found.middleware.js";
 import {errorMiddleware} from "./middlewares/error.middleware.js";
 import morgan from "morgan";
 import {authRouter} from "./routes/auth.route.js";
+import {todoRouter} from "./routes/todo.route.js";
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.json()); // needed to read
 app.use(morgan("dev"));
 
 app.use("/auth", authRouter);
+app.use("/todos", todoRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
