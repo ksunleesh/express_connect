@@ -9,13 +9,12 @@ export const validate = (schemas) => (req, res, next) => {
     }
     req.body = result.data;
   }
-  //   if (schemas.params) req.rarams = schemas.params.parse(req.params);
   if (schemas.params) {
     const result = schemas.params.safeParse(req.params);
     if (!result.success) {
       createError(400, "Invalid request path paramters", z.flattenError(result.error));
     }
-    req.param = result.data;
+    req.params = result.data;
   }
 
   next();

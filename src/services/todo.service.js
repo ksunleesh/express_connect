@@ -1,4 +1,5 @@
 import {prisma} from "../db/prisma.js";
+import {createError} from "../utils/create-error.js";
 
 export const todoService = {};
 
@@ -10,3 +11,22 @@ todoService.create = (userId, input) =>
       dueDate: input.dueDate ? new Date(input.dueDate) : null,
     },
   });
+
+todoService.update = async (id, userId, input) => {
+  const todo = await prisma.todo.findUnique({
+    where: {id},
+  });
+  if (!todo) {
+    createError(404, `Todo item with id: ${id} not found`);
+  }
+  if (userId !== todo.userId) {
+    createError(403, `Do not have permission to perform action with id: ${id}`);
+  }
+  return prisma.todo.update({
+    where: {id},
+    data: {
+      ...input,
+      dueDate: input.dueDate ? new Date(input.dueDate) : null,
+    },
+  });
+};
